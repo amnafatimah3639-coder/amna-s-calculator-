@@ -38,12 +38,28 @@ html, body, .stApp{
 header[data-testid="stHeader"]{ background: transparent; }
 #MainMenu, footer { visibility: hidden; }
 
+/* Streamlit's real scroll container -- turn it into a centering flexbox */
+[data-testid="stAppViewContainer"]{
+  height: 100vh;
+  overflow: hidden;
+}
+section[data-testid="stMain"]{
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+div[data-testid="stMainBlockContainer"], .block-container{
+  margin: 0 !important;
+}
+
 /* tighten Streamlit's default vertical rhythm everywhere */
 div[data-testid="stVerticalBlock"] > div[data-testid="stElementContainer"]{
-  margin-bottom: 0.32rem !important;
+  margin-bottom: 0.2rem !important;
 }
 div[data-testid="stHorizontalBlock"]{
-  gap: 0.4rem !important;
+  gap: 0.28rem !important;
 }
 div[data-testid="stElementContainer"]{ margin: 0 !important; }
 
@@ -53,10 +69,10 @@ div[data-testid="stElementContainer"]{ margin: 0 !important; }
     radial-gradient(circle at 8px 8px, rgba(0,0,0,0.05) 1px, transparent 1.4px) 0 0/16px 16px,
     radial-gradient(circle at 4px 12px, rgba(255,255,255,0.35) 1px, transparent 1.4px) 0 0/16px 16px,
     var(--case);
-  max-width: 480px;
-  margin: 1.1vh auto 0 auto !important;
-  padding: 1rem 1.3rem 0.9rem 1.3rem !important;
-  border-radius: 26px;
+  max-width: 360px;
+  margin: 0 auto !important;
+  padding: 0.7rem 0.9rem 0.65rem 0.9rem !important;
+  border-radius: 20px;
   border: 3px solid var(--case-edge);
   box-shadow:
     0 18px 0 -6px rgba(0,0,0,0.15),
@@ -96,8 +112,8 @@ div[data-testid="stElementContainer"]{ margin: 0 !important; }
 .machine-title{
   font-family: 'Special Elite', cursive;
   color: var(--ink);
-  font-size: 1.35rem;
-  letter-spacing: 0.03em;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
   text-align: center;
   margin-bottom: 0 !important;
 }
@@ -105,35 +121,35 @@ div[data-testid="stElementContainer"]{ margin: 0 !important; }
   font-family: 'Courier Prime', monospace;
   color: var(--ink-faint);
   text-align: center;
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin: 0.1rem 0 0.55rem 0 !important;
+  margin: 0.05rem 0 0.4rem 0 !important;
 }
 
 /* Paper display window */
 .stTextInput input{
   font-family: 'Courier Prime', monospace !important;
-  font-size: 1rem !important;
-  letter-spacing: 0.06em;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.05em;
   background: var(--paper) !important;
   color: var(--ink) !important;
   border: none !important;
-  border-radius: 8px !important;
-  padding: 0.5rem 0.6rem !important;
+  border-radius: 7px !important;
+  padding: 0.32rem 0.5rem !important;
   box-shadow: inset 0 2px 5px rgba(0,0,0,0.18), inset 0 0 0 2px var(--case-edge);
 }
 .stTextInput input:focus{ outline: none !important; }
 
 .result-strip{
   font-family: 'Courier Prime', monospace;
-  font-size: 0.95rem;
-  min-height: 1.4rem;
+  font-size: 0.78rem;
+  min-height: 1.05rem;
   color: var(--ink);
   background: var(--paper);
-  border-radius: 8px;
-  padding: 0.35rem 0.6rem;
-  margin: 0.35rem 0 0.55rem 0 !important;
+  border-radius: 7px;
+  padding: 0.22rem 0.5rem;
+  margin: 0.25rem 0 0.4rem 0 !important;
   box-shadow: inset 0 2px 5px rgba(0,0,0,0.14), inset 0 0 0 2px var(--case-edge);
 }
 .result-strip.error{ color: var(--ribbon-dk); }
@@ -146,10 +162,10 @@ div[data-testid="stElementContainer"]{ margin: 0 !important; }
 .section-label{
   font-family: 'Courier Prime', monospace;
   color: var(--ink-faint);
-  font-size: 0.62rem;
-  letter-spacing: 0.14em;
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  margin: 0.35rem 0 0.15rem 0.1rem !important;
+  margin: 0.2rem 0 0.1rem 0.1rem !important;
 }
 
 /* ---------- UNIFORM ROUND KEYS ---------- */
@@ -161,11 +177,11 @@ div[data-testid="stElementContainer"]{ margin: 0 !important; }
   border-radius: 10px !important;
   aspect-ratio: 1 / 1;
   width: 100% !important;
-  height: clamp(26px, 5.1vh, 44px) !important;
+  height: clamp(20px, 4vh, 34px) !important;
   min-height: 0 !important;
   padding: 0 !important;
-  font-size: clamp(0.55rem, 1.35vh, 0.78rem) !important;
-  box-shadow: 0 3px 0 #0c0a08, 0 5px 7px rgba(0,0,0,0.4) !important;
+  font-size: clamp(0.45rem, 1.05vh, 0.65rem) !important;
+  box-shadow: 0 2px 0 #0c0a08, 0 4px 5px rgba(0,0,0,0.4) !important;
   transition: transform 0.05s ease, box-shadow 0.05s ease !important;
 }
 .stButton > button:hover{ border-color: var(--ribbon) !important; }
